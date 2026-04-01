@@ -80,7 +80,7 @@ Crie a tabela abaixo no PgAdmin:
 ```
 CREATE TABLE IF NOT EXISTS public.usuario
 (
-    idusuario integer NOT NULL DEFAULT nextval('usuario_idusuario_seq'::regclass),
+    idusuario INTEGER GENERATED ALWAYS AS IDENTITY,
     username character varying(50) COLLATE pg_catalog."default" NOT NULL,
     password character varying(32) COLLATE pg_catalog."default" NOT NULL,
     status boolean DEFAULT true,
@@ -173,7 +173,7 @@ include 'cabecalho.php';
 ```
 CREATE TABLE IF NOT EXISTS public.produto
 (
-    idproduto integer NOT NULL DEFAULT nextval('produto_idproduto_seq'::regclass),
+    idproduto INTEGER GENERATED ALWAYS AS IDENTITY,
     produtonome character varying(100) COLLATE pg_catalog."default" NOT NULL,
     produtopreco real NOT NULL DEFAULT 0,
     produtofoto character varying(150) COLLATE pg_catalog."default",
